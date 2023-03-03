@@ -1,16 +1,13 @@
 import { FC } from "react";
 
 import { Button } from "../atom/Button";
+import { Title } from "./Title";
 
 export const InfoList: FC = () => {
   return (
     <main>
       <div className="container m-auto">
-        <div className="text-center space-y-3 mb-5">
-          <h1 className="text-6xl font-bold">What to share?</h1>
-          <p>情報を共有しよう</p>
-          <Button bgColor="bg-green-300">新規投稿</Button>
-        </div>
+        <Title />
         <div className="flex flex-wrap p-3">
           <div className="w-[30%] shadow rounded-lg space-y-3 p-4">
             <h3 className="text-lg font-bold">タイトル</h3>
