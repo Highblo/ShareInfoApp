@@ -1,13 +1,33 @@
-import { FC } from "react";
+import { FC, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
+import { endPoint } from "../components/atom/endPoint";
 
 export const CreateThread: FC = () => {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+
+  const navigate = useNavigate();
+
+  const sendNewThread = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const data = { title, description };
+
+    axios.post(endPoint, data).then(() => {
+      setTitle("");
+      setDescription("");
+      navigate("/");
+    });
+  };
+
   return (
     <div>
       <div className="w-[60%] mx-auto p-4">
         <h2 className="text-3xl font-bold text-center">新規投稿フォーム</h2>
         <form
-          action="http://localhost:8000/threads"
-          method="POST"
+          onSubmit={(e) => sendNewThread(e)}
           className="shadow-lg rounded-lg space-y-8 p-5"
         >
           <div className="flex items-center gap-3">
@@ -18,6 +38,8 @@ export const CreateThread: FC = () => {
               type="text"
               id="title"
               placeholder="タイトルを入力してください"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
               className="flex-1 border p-3 outline-none"
             />
           </div>
@@ -28,6 +50,8 @@ export const CreateThread: FC = () => {
             <textarea
               id="description"
               placeholder="内容を入力してください"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
               className="flex-1 border p-3 outline-none"
             />
           </div>

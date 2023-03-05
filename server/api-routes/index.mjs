@@ -12,6 +12,6 @@ router.post("/", async (req, res) => {
   const thread = new Thread(req.body);
   const newThread = await thread.save();
   res.json(newThread);
-})
+});
 
 export default router;
