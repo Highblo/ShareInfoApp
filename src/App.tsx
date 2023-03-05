@@ -1,14 +1,17 @@
-import "./App.css";
+import { BrowserRouter } from "react-router-dom";
 
+import "./App.css";
 import { Header } from "./components/header/Header";
-import { InfoList } from "./components/main/InfoList";
+import { Router } from "./router/Router";
 
 function App() {
   return (
-    <div className="min-h-screen text-[#778a99]">
-      <Header />
-      <InfoList />
-    </div>
+    <BrowserRouter>
+      <div className="min-h-screen text-[#778a99]">
+        <Header />
+        <Router />
+      </div>
+    </BrowserRouter>
   );
 }
 

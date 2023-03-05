@@ -3,13 +3,15 @@ import { FC, ReactNode } from "react";
 type Props = {
   children: ReactNode;
   bgColor: string;
+  url: string;
 };
 
 export const Button: FC<Props> = (props) => {
-  const { children, bgColor } = props;
+  const { children, bgColor, url } = props;
+
   return (
-    <button className={`${bgColor} py-2 px-4 rounded-xl text-white`}>
+    <a href={url} className={`${bgColor} py-2 px-4 rounded-xl text-white`}>
       {children}
-    </button>
+    </a>
   );
 };
