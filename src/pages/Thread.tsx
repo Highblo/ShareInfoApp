@@ -2,7 +2,7 @@ import { FC } from "react";
 
 export const Thread: FC = () => {
   return (
-    <div>
+    <div className="flex-1">
       <input
         type="submit"
         value="編集する"

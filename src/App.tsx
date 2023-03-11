@@ -7,7 +7,7 @@ import { Router } from "./router/Router";
 function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen text-[#778a99]">
+      <div className="flex flex-col min-h-screen text-[#778a99]">
         <Header />
         <Router />
       </div>
