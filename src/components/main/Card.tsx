@@ -14,7 +14,7 @@ export const Card: FC<Props> = (props) => {
   const navigate = useNavigate();
 
   const navigateThread = (id: string) => {
-    navigate(`${id}`);
+    navigate(id, { state: id });
   };
 
   return (
