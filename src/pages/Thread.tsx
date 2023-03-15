@@ -1,8 +1,9 @@
 import axios from "axios";
 import { FC, useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import { Button } from "../components/atom/Button";
+import { Button2 } from "../components/atom/Button2";
 import { endPoint } from "../components/atom/endPoint";
 
 type threadType = {
@@ -14,6 +15,7 @@ type threadType = {
 
 export const Thread: FC = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [thread, setThread] = useState({} as threadType);
   const [id, setId] = useState<string>(location.state);
 
@@ -23,9 +25,15 @@ export const Thread: FC = () => {
     });
   }, []);
 
+  const deleteThread = (id: string) => {
+    axios.delete(`${endPoint}/${id}`).then(() => {
+      navigate("/");
+    });
+  };
+
   return (
     <div className="flex-1">
-      <div className="w-[65%] max-w-5xl mx-auto bg-slate-200 shadow-lg rounded-3xl p-6 mt-28 space-y-7">
+      <div className="w-[80%] max-w-5xl mx-auto bg-slate-200 shadow-xl rounded-3xl p-6 mt-28 space-y-7 md:w-[65%]">
         <div>
           <p className="font-bold">タイトル</p>
           <h3>{thread.title}</h3>
@@ -42,13 +50,17 @@ export const Thread: FC = () => {
           <p className="font-bold">更新日</p>
           <p>{thread.updatedAt}</p>
         </div>
-        <div className="text-center space-x-6">
-          <button className="bg-green-300 w-[20%] py-2 px-4 rounded-xl text-white cursor-pointer hover:scale-110 transition disabled:opacity-60 disabled:hover:scale-100">
+        <div className="text-center space-x-3 md:space-x-6">
+          <Button2
+            onClick={() => deleteThread(id)}
+            bgColor="bg-green-300"
+            width="w-[30%]"
+          >
             削除
-          </button>
-          <button className="bg-green-300 w-[20%] py-2 px-4 rounded-xl text-white cursor-pointer hover:scale-110 transition disabled:opacity-60 disabled:hover:scale-100">
+          </Button2>
+          <Button2 bgColor="bg-violet-300" width="w-[30%]">
             編集
-          </button>
+          </Button2>
         </div>
       </div>
       <div className="text-center mt-7">

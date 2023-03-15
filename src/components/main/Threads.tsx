@@ -13,7 +13,7 @@ export const Threads: FC = () => {
     });
   }, []);
   return (
-    <div className="flex flex-wrap gap-7 p-3">
+    <div className="bg-slate-300 rounded-3xl p-6 md:flex md:flex-wrap md:justify-around sm:p-12">
       {threads.map(({ _id, title, description, createdAt, updatedAt }) => (
         <Card
           id={_id}

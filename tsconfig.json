@@ -16,6 +16,6 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "src/components/main"],
+  "include": ["src", "src/components/main", "src/components/header/Header.tsxentssrc/components/header/Header.tsxader.tsx", "src/components/header/Header.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

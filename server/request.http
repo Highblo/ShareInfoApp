@@ -10,4 +10,15 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:8000/threads/640cd7402a9843478fd6b152
+PATCH http://localhost:8000/threads/64004ad7a17203559dba773b
+Content-Type: application/json
+
+{
+  "description": "patchのテスト3回目です"
+}
+
+###
+GET http://localhost:8000/threads/630cd7402a9843478fd6b151
+
+###
+DELETE http://localhost:8000/threads/61004

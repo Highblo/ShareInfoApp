@@ -24,14 +24,16 @@ export const CreateThread: FC = () => {
 
   return (
     <div className="flex-1 flex justify-center items-center">
-      <div className="w-[65%] max-w-5xl mb-36 space-y-7">
-        <h2 className="text-3xl font-bold text-center">新規投稿フォーム</h2>
+      <div className="w-[80%] max-w-5xl mb-36 space-y-7 md:w-[65%]">
+        <h2 className="text-xl font-bold text-center md:text-3xl">
+          新規投稿フォーム
+        </h2>
         <form
-          className="shadow-lg rounded-3xl space-y-8 p-6 bg-slate-200"
+          className="shadow-xl rounded-3xl space-y-5 p-6 bg-slate-300 md:space-y-8"
           onSubmit={(e) => sendNewThread(e)}
         >
           <div>
-            <label htmlFor="title" className="text-xl">
+            <label htmlFor="title" className="md:text-xl">
               タイトル
             </label>
             <input
@@ -40,11 +42,11 @@ export const CreateThread: FC = () => {
               placeholder="タイトルを入力してください"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="block w-full rounded-2xl p-3 mt-3 outline-none"
+              className="block w-full rounded-lg p-2 mt-3 outline-none md:p-3"
             />
           </div>
           <div>
-            <label htmlFor="description" className="text-xl">
+            <label htmlFor="description" className="md:text-xl">
               内容
             </label>
             <textarea
@@ -52,12 +54,12 @@ export const CreateThread: FC = () => {
               placeholder="内容を入力してください"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              className="block w-full rounded-2xl p-3 mt-3 outline-none"
+              className="block w-full rounded-lg p-2 mt-3 outline-none md:p-3"
             />
           </div>
           <div className="text-center">
             <button
-              className="bg-green-300 w-[20%] py-2 px-4 rounded-xl text-white cursor-pointer hover:scale-110 transition disabled:opacity-60 disabled:hover:scale-100"
+              className="bg-green-300 w-full py-2 px-4 rounded-xl text-white cursor-pointer hover:scale-110 transition disabled:opacity-60 disabled:hover:scale-100 sm:w-[30%]"
               disabled={title === "" || description === ""}
             >
               作成
